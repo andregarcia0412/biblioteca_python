@@ -1,0 +1,100 @@
+A Sombra da Ultima Estrela: Disponivel: Fisico: 13
+Ecos do Silencio: Indisponivel: Digital: 0
+O Jardim das Almas Perdidas: Disponivel: Fisico: 5
+Alem do Veu: Disponivel: Digital: 18
+As Cronicas do Fogo Eterno: Indisponivel: Fisico: 0
+Os Olhos do Infinito: Disponivel: Digital: 9
+O Labirinto dos Sonhos: Disponivel: Fisico: 22
+A Cancao do Vento Antigo: Indisponivel: Digital: 0
+Fragmentos do Amanha: Disponivel: Fisico: 14
+A Chave de Vidro: Disponivel: Digital: 27
+A Cidade Sob a Neve: Disponivel: Fisico: 4
+O Legado dos Imortais: Indisponivel: Digital: 0
+Tempestade de Prata: Disponivel: Fisico: 8
+As Mares do Destino: Disponivel: Digital: 15
+O Sussurro da Floresta: Disponivel: Fisico: 6
+O Guardiao das Sombras: Indisponivel: Fisico: 0
+No Coracao da Tempestade: Disponivel: Digital: 13
+A Noite dos Corvos: Disponivel: Fisico: 19
+A Profecia Esquecida: Indisponivel: Digital: 0
+As Lagrimas do Tempo: Disponivel: Digital: 24
+Entre Espadas e Segredos: Disponivel: Fisico: 11
+O Ultimo Suspiro da Terra: Indisponivel: Digital: 0
+O Codice das Estrelas: Disponivel: Digital: 7
+Rios de Cinzas: Disponivel: Fisico: 16
+A Lenda do Olho Dourado: Indisponivel: Fisico: 0
+A Torre das Almas: Disponivel: Digital: 20
+O Ceifador de Esperancas: Disponivel: Fisico: 2
+Um Mar de Memorias: Disponivel: Digital: 17
+Os Circulos da Verdade: Indisponivel: Fisico: 0
+O Principe da Nevoa: Disponivel: Digital: 30
+Luzes no Abismo: Disponivel: Fisico: 6
+Asas de Areia: Indisponivel: Digital: 0
+A Marcha dos Automatos: Disponivel: Digital: 9
+A Coroa de Espinhos: Disponivel: Fisico: 3
+Os Segredos de Elara: Disponivel: Fisico: 25
+Ecos de um Passado Sombrio: Indisponivel: Digital: 0
+A Cacada do Eclipse: Disponivel: Fisico: 13
+Fragmentos de um Rei Caido: Disponivel: Digital: 12
+Sob as Ruinas do Sol: Disponivel: Fisico: 8
+O Ultimo Poeta: Indisponivel: Digital: 0
+O Vento que Danca: Disponivel: Digital: 14
+Uma Cancao para o Fim: Indisponivel: Fisico: 0
+A Herdeira da Escuridao: Disponivel: Fisico: 5
+Lendas de Prata e Sangue: Disponivel: Digital: 11
+Tres Dias de Gelo: Indisponivel: Fisico: 0
+O Livro das Portas: Disponivel: Digital: 19
+Nevoeiro Vermelho: Disponivel: Fisico: 7
+O Berco das Estrelas: Indisponivel: Digital: 0
+A Queda da Aurora: Disponivel: Fisico: 21
+O Lobo e a Rosa: Disponivel: Digital: 16
+As Correntes do Destino: Indisponivel: Fisico: 0
+O Relogio Queimado: Disponivel: Digital: 12
+Vozes na Areia: Disponivel: Fisico: 9
+A Luz entre os Espinhos: Indisponivel: Digital: 0
+O Som da Eternidade: Disponivel: Fisico: 2
+O Mago do Norte: Disponivel: Digital: 26
+A Filha do Inverno: Disponivel: Fisico: 4
+O Coracao de Ferro: Indisponivel: Digital: 0
+A Chama Escondida: Disponivel: Fisico: 15
+A Ponte das Almas: Disponivel: Digital: 10
+Petalas no Vaco: Disponivel: Fisico: 6
+A Ilha dos Nomes Perdidos: Indisponivel: Digital: 0
+Os Guardioes do Crepusculo: Disponivel: Fisico: 8
+O Contrato de Sombras: Disponivel: Digital: 13
+Reliquias do Silencio: Indisponivel: Fisico: 0
+A Estrela Roubada: Disponivel: Digital: 17
+O Eco da Loucura: Disponivel: Fisico: 5
+O Diario da Tempestade: Indisponivel: Digital: 0
+Terra de Sangue e Ouro: Disponivel: Fisico: 20
+O Sopro do Nada: Disponivel: Digital: 18
+O Portal das Memorias: Disponivel: Fisico: 7
+Lembrancas de Um Mundo Queimado: Indisponivel: Digital: 0
+O Circo dos Mil Mundos: Disponivel: Fisico: 2
+As Faces do Inverno: Disponivel: Digital: 24
+O Livro das Respostas: Disponivel: Fisico: 6
+A Filha do Trovao: Indisponivel: Digital: 0
+Veus de Cinza: Disponivel: Digital: 13
+O Destino da Rosa Negra: Disponivel: Fisico: 10
+Os Gritos do Submundo: Indisponivel: Fisico: 0
+A Balada das Chamas: Disponivel: Digital: 25
+O Sonho de Ferro: Disponivel: Fisico: 9
+A Rosa e o Abismo: Disponivel: Digital: 12
+Mil Veus de Areia: Indisponivel: Fisico: 0
+A Maldicao da Noite Clara: Disponivel: Digital: 8
+Os Ecos da Cidade Morta: Disponivel: Fisico: 4
+Um Ceu de Mentiras: Indisponivel: Digital: 0
+As Correntes do Abismo: Disponivel: Digital: 21
+Os Sete Reinos da Lua: Disponivel: Fisico: 5
+A Lanca Partida: Indisponivel: Fisico: 0
+A Cancao do Norte: Disponivel: Digital: 19
+No Limiar da Escuridao: Disponivel: Fisico: 3
+Codigos do Vento: Disponivel: Digital: 15
+Os Filhos do Templo: Indisponivel: Fisico: 0
+A Tregua das Sombras: Disponivel: Fisico: 7
+O Espelho de Sangue: Disponivel: Digital: 14
+A Guerra dos Fragmentos: Indisponivel: Fisico: 0
+Sobre Pedras e Promessas: Disponivel: Fisico: 6
+O Selo do Guardiao: Disponivel: Digital: 22
+A Coragem da Chama: Indisponivel: Fisico: 0
+O Ultimo Acorde: Disponivel: Digital: 30
