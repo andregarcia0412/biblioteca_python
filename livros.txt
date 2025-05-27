@@ -25,7 +25,7 @@ Rios de Cinzas: Disponivel: Fisico: 16
 A Lenda do Olho Dourado: Indisponivel: Fisico: 0
 A Torre das Almas: Disponivel: Digital: 20
 O Ceifador de Esperancas: Disponivel: Fisico: 2
-Um Mar de Memorias: Disponivel: Digital: 17
+Um Mar de Memorias: Disponivel: Digital: 18
 Os Circulos da Verdade: Indisponivel: Fisico: 0
 O Principe da Nevoa: Disponivel: Digital: 30
 Luzes no Abismo: Disponivel: Fisico: 6
@@ -97,4 +97,5 @@ A Guerra dos Fragmentos: Indisponivel: Fisico: 0
 Sobre Pedras e Promessas: Disponivel: Fisico: 6
 O Selo do Guardiao: Disponivel: Digital: 22
 A Coragem da Chama: Indisponivel: Fisico: 0
-O Ultimo Acorde: Disponivel: Digital: 30
+O Ultimo Acorde: Disponivel: Digital: 33
+machado de assis: Disponivel: Fisico: 32
