@@ -2,15 +2,15 @@ import bcrypt
 
 def cadastrar_usuario(nome_arquivo, usuario, senha):
     with open(nome_arquivo, "a") as arquivo:
-        arquivo.write(f"{usuario}:{senha}:False\n")
+        arquivo.write(f"{usuario}:{senha.decode()}:False\n")
         print("Usuário cadastrado com sucesso.")
 
-def verificar_login(nome_arquivo, usuario, senha, hash):
+def verificar_login(nome_arquivo, usuario, senha):
     try:
         with open(nome_arquivo, "r") as arquivo:
             for linha in arquivo:
                 usuario_salvo, senha_salva, admin = linha.strip().split(":")
-                if usuario == usuario_salvo and bcrypt.checkpw(senha.encode(), hash):
+                if usuario == usuario_salvo and bcrypt.checkpw(senha.encode(), senha_salva.encode()):
                     return True
         return False
     except:
@@ -201,7 +201,7 @@ elif escolha_login == "2":
     nome_usuario = input("Digite o nome de usuário ")
     senha_usuario = input("Digite sua senha ")
     if verificar_usuario_existente(arquivo_usuarios, nome_usuario):
-        if verificar_login(arquivo_usuarios, nome_usuario, senha_usuario, criptografar_senha(senha_usuario)):
+        if verificar_login(arquivo_usuarios, nome_usuario, senha_usuario):
             escolha_livro = input(f"Bem vindo, {nome_usuario}, oque deseja fazer?\n1. Alugar Livro\n2. Devolver Livro\n3. Ver livros em posse\n4. Opções de administrador\n5. Cancelar\n")
             arquivo_livros = "loginPython/livros.txt"
             arquivo_livros_emprestados = "loginPython/livros_emprestados.txt"
