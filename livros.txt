@@ -98,4 +98,3 @@ Sobre Pedras e Promessas: Disponivel: Fisico: 6
 O Selo do Guardiao: Disponivel: Digital: 22
 A Coragem da Chama: Indisponivel: Fisico: 0
 O Ultimo Acorde: Disponivel: Digital: 33
-machado de assis: Disponivel: Fisico: 32
