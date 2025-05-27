@@ -1,5 +1,3 @@
-arthur:arthuralgu
-andre:andre
-adjas:asd
-andre123:andre123
-andre1:andre123
+padrao:padrao:padrao
+andre:b'$2b$12$XPO4AardWMXV9mDN4OdA/e9fIDTOp7zklE6OoLIKYNQ4EjJTTJcwa':True
+dimitri:b'$2b$12$gW8lIX9Jpl3hXd2yUXzwS.DIqjUpg92PcalR1fXA7M8a6eMn8Obyy':False
