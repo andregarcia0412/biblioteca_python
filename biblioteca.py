@@ -203,15 +203,25 @@ def devolver_livros_ao_apagar_usuario(nome_arquivo_emprestados, nome_arquivo_liv
                 novas_linhas.append(linha)
 
 def verificar_atraso (nome_arquivo, usuario, prazo):
-    prazo_entrega = datetime.now().date() + timedelta(days = prazo)
     total_atrasados = 0
     with open(nome_arquivo, "r") as arquivo:
         for linha in arquivo:
             usuario_salvo, livro, data_emprestimo = linha.strip().split(":")
             if usuario_salvo == usuario:
-                if prazo_entrega > datetime.strptime(data_emprestimo, "%Y-%m-%d").date():
-                    return False
-    return True
+                prazo_entrega = datetime.strptime(data_emprestimo, "%Y-%m-%d").date() + timedelta(days = prazo)
+                if prazo_entrega < date.today():
+                    total_atrasados += 1
+        if total_atrasados > 0:
+            print(f"Voce tem {total_atrasados} livros atrasados (prazo de {prazo} dias)")
+            return True
+    return False
+
+def ver_livros_disponiveis (nome_arquivo):
+    with open(nome_arquivo, "r") as arquivo:
+        for linha in arquivo:
+            nome_livro, disponibilidade, forma, quantidade = linha.strip().split(": ")
+            if disponibilidade.lower() == "disponivel":
+                print(f"{nome_livro} está no formato {forma}. Existem {quantidade} cópias disponíveis")
 
 
     
@@ -240,7 +250,7 @@ elif escolha_login == "2":
     senha_usuario = input("Digite sua senha ")
     if verificar_usuario_existente(arquivo_usuarios, nome_usuario):
         if verificar_login(arquivo_usuarios, nome_usuario, senha_usuario):
-            escolha_livro = input(f"Bem vindo, {nome_usuario}, oque deseja fazer?\n1. Alugar Livro\n2. Devolver Livro\n3. Ver livros em posse\n4. Opções de administrador\n5. Cancelar\n")
+            escolha_livro = input(f"Bem vindo, {nome_usuario}, oque deseja fazer?\n1. Alugar Livro\n2. Devolver Livro\n3. Ver livros em posse\n4. Opções de administrador\n5. Ver livros disponíveis\n6. Cancelar\n")
             arquivo_livros = "loginPython/livros.txt"
             arquivo_livros_emprestados = "loginPython/livros_emprestados.txt"
 
@@ -279,8 +289,7 @@ elif escolha_login == "2":
                         if usuario_salvo == nome_usuario:
                             existe_livro_posse = True
                             print(f"• {livro_alugado} - Prazo de entrega: {datetime.strptime(data_emprestimo, "%Y-%m-%d").date() + timedelta(days = 3)}")
-                            if verificar_atraso(arquivo_livros_emprestados, nome_usuario, 3):
-                                print(f"Você tem atrasos pendentes")
+                    verificar_atraso(arquivo_livros_emprestados, nome_usuario, 3)
                     if not existe_livro_posse:
                         print("Esse usuario não tem livros em posse")
 
@@ -319,6 +328,8 @@ elif escolha_login == "2":
                 else:
                     print("Você não tem permissões de administrador")
             elif escolha_livro == "5":
+                ver_livros_disponiveis(arquivo_livros)
+            elif escolha_livro == "6":
                 print("Volte sempre!")
             else:
                 print("Opção Inválida")
@@ -328,3 +339,5 @@ elif escolha_login == "2":
         print("Usuário não existe ")
 else:
     print("Opção Inválida")
+
+#fazer aba de compras
