@@ -1,4 +1,5 @@
 import bcrypt
+from datetime import datetime, date, timedelta
 
 def cadastrar_usuario(nome_arquivo, usuario, senha):
     with open(nome_arquivo, "a") as arquivo:
@@ -33,8 +34,9 @@ def verificar_livro_existente(nome_arquivo, livro):
     return False
 
 def alugar_livro(nome_arquivo, usuario, livro):
+    data_emprestimo = datetime.now().date()
     with open(nome_arquivo, "a") as arquivo:
-        arquivo.write(f"{usuario}:{livro.lower()}\n")
+        arquivo.write(f"{usuario}:{livro.lower()}:{data_emprestimo}\n")
         print("O livro foi alugado")
     
 def reescrever_livros(nome_arquivo, livro_escolhido):
@@ -61,7 +63,7 @@ def reescrever_livros(nome_arquivo, livro_escolhido):
 def verificar_alugado(nome_arquivo, usuario, livro):
     with open(nome_arquivo, "r") as arquivo:
         for linha in arquivo:
-            usuario_salvo, livro_salvo = linha.strip().split(":")
+            usuario_salvo, livro_salvo, data_emprestimo = linha.strip().split(":")
             if usuario == usuario_salvo:
                 if livro == livro_salvo:
                     return True
@@ -91,7 +93,7 @@ def retornar_livro(nome_arquivo_emprestimo, nome_arquivo_livros, livro_escolhido
 
     novas_linhas = []
     for linha in linhas:
-        usuario_salvo, livro_salvo = linha.strip().split(":")
+        usuario_salvo, livro_salvo, data_emprestimo = linha.strip().split(":")
         if livro_salvo.lower() == livro_escolhido.lower() and usuario_salvo == nome_usuario:
             novas_linhas.append("")
         else:
@@ -177,6 +179,42 @@ def remover_livro(nome_arquivo, livro_removido):
     with open(nome_arquivo, "w") as arquivo:
         arquivo.writelines(novas_linhas)
 
+def remover_usuario(nome_arquivo, usuario_removido):
+    novas_linhas = []
+    with open(nome_arquivo, "r") as arquivo:
+        linhas = arquivo.readlines()
+        for linha in linhas:
+            usuario_salvo, senha_salva, cargo_admin = linha.strip().split(":")
+            if usuario_salvo != usuario_removido:
+                novas_linhas.append(linha)
+
+    with open(nome_arquivo, "w") as arquivo:
+        arquivo.writelines(novas_linhas)
+
+def devolver_livros_ao_apagar_usuario(nome_arquivo_emprestados, nome_arquivo_livros, usuario_removido):
+    novas_linhas = []
+    with open(nome_arquivo_emprestados, "r") as arquivo:
+        linhas = arquivo.readlines()
+        for linha in linhas:
+            usuario_salvo, livro_emprestado, data_emprestimo = linha.strip().split(":")
+            if usuario_removido == usuario_salvo:
+                retornar_livro(nome_arquivo_emprestados, nome_arquivo_livros, livro_emprestado, usuario_removido)
+            elif usuario_removido != usuario_salvo:
+                novas_linhas.append(linha)
+
+def verificar_atraso (nome_arquivo, usuario, prazo):
+    prazo_entrega = datetime.now().date() + timedelta(days = prazo)
+    total_atrasados = 0
+    with open(nome_arquivo, "r") as arquivo:
+        for linha in arquivo:
+            usuario_salvo, livro, data_emprestimo = linha.strip().split(":")
+            if usuario_salvo == usuario:
+                if prazo_entrega > datetime.strptime(data_emprestimo, "%Y-%m-%d").date():
+                    return False
+    return True
+
+
+    
 arquivo_usuarios = "loginPython/usuarios.txt"
 
 print("=== Biblioteca Virtual ===")
@@ -189,8 +227,8 @@ if escolha_login == "1":
     if verificar_usuario_existente(arquivo_usuarios, nome_usuario):
         print("Ja existe um usuário com esse nome ")
     else:
-        senha_usuario = input("Crie uma senha ")
-        confirmar_senha = input("Confirme a senha ")
+        senha_usuario = input("Crie uma senha\n")
+        confirmar_senha = input("Confirme a senha\n")
         if(senha_usuario == confirmar_senha):
             hash = criptografar_senha(senha_usuario)
             cadastrar_usuario(arquivo_usuarios, nome_usuario, hash)
@@ -237,16 +275,18 @@ elif escolha_login == "2":
                 with open(arquivo_livros_emprestados, "r") as arquivo:
                     existe_livro_posse = False
                     for linha in arquivo:
-                        usuario_salvo, livro_alugado = linha.strip().split(":")
+                        usuario_salvo, livro_alugado, data_emprestimo = linha.strip().split(":")
                         if usuario_salvo == nome_usuario:
                             existe_livro_posse = True
-                            print(livro_alugado)
+                            print(f"• {livro_alugado} - Prazo de entrega: {datetime.strptime(data_emprestimo, "%Y-%m-%d").date() + timedelta(days = 3)}")
+                            if verificar_atraso(arquivo_livros_emprestados, nome_usuario, 3):
+                                print(f"Você tem atrasos pendentes")
                     if not existe_livro_posse:
                         print("Esse usuario não tem livros em posse")
 
             elif escolha_livro == "4":
                 if verificar_administrador(arquivo_usuarios, nome_usuario):
-                    escolha_adm = input("Bem vindo administrador, o que deseja fazer?\n1. Adicionar administrador\n2. Adicionar livro\n3. Remover administrador\n4. Remover livro\n5. Remover usuário\n")
+                    escolha_adm = input("Bem vindo administrador, o que deseja fazer?\n1. Adicionar administrador\n2. Adicionar livro\n3. Remover administrador\n4. Remover livro\n5. Remover usuário\n6. Cancelar\n")
                     if escolha_adm == "1":
                         nome_usuario_admin = input("Digite o nome do usuario que quer tornar administrador:\n").strip()
                         adicionar_administrador(arquivo_usuarios, nome_usuario_admin)
@@ -266,6 +306,16 @@ elif escolha_login == "2":
                             print(f"O livro {nome_livro_removido} foi removido")
                         else:
                             print("Esse livro não está no banco de dados")
+                    elif escolha_adm == "5":
+                        usuario_removido = input("Digite o nome do usuario que quer remover\n")
+                        if verificar_usuario_existente(arquivo_usuarios, usuario_removido):
+                            devolver_livros_ao_apagar_usuario(arquivo_livros_emprestados, arquivo_livros, usuario_removido)
+                            remover_usuario(arquivo_usuarios, usuario_removido)
+                            print(f"O usuario {usuario_removido} foi removido do nosso banco de dados")
+                        else:
+                            print("Esse usuário não está no banco de dados")
+                    elif escolha_adm == "6":
+                        print("Volte sempre!")
                 else:
                     print("Você não tem permissões de administrador")
             elif escolha_livro == "5":
@@ -278,5 +328,3 @@ elif escolha_login == "2":
         print("Usuário não existe ")
 else:
     print("Opção Inválida")
-
-#continuar as opções de administrador
